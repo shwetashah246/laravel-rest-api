@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class SPAController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,9 +16,10 @@ class HomeController extends Controller
 
     }
 
-    public function index()
+    //Load the System build in vue (Single page app running with VueJS)
+    public function vueroute()
     {
-        return view('home');
+        return view('vueview');
     }
 
 }

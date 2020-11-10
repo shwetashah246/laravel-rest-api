@@ -14,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
+
+
 Route::get('/', 'HomeController@index');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Single page application (SPA)
+/*
+ * The Laravel routing component allows all characters except "/". 
+ * You must explicitly allow / to be part of your placeholder using a where condition regular expression
+*/
+//Route::get('/v/{any}', 'SPAController@vueroute')->where('any', '.*');
+if(! request()->ajax() ){
+    Route::get('/{any}', 'SPAController@vueroute')->where('any', '.*');
+}
